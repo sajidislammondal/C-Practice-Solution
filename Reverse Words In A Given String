@@ -1,0 +1,36 @@
+Problem
+======================================
+Program To Reverse Words In A Given String
+Examples: 
+
+Input: s = "geeks quiz practice code" 
+Output: s = "code practice quiz geeks"
+
+Input: s = "getting good at coding needs a lot of practice" 
+Output: s = "practice of lot a needs coding at good getting"
+
+=======================================
+Answer
+======================================
+using System;
+
+class Program
+{
+    static string ReverseWords(string s)
+    {
+        string[] words = s.Split(' ');
+        string result = "";
+
+        for (int i = words.Length - 1; i >= 0; i--)
+        {
+            result += words[i];
+
+            if (i > 0)
+                result += " ";
+        }
+
+        return result;
+    }
+
+ }
+====================================
