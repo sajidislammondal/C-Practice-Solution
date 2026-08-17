@@ -18,36 +18,23 @@ Explanation: No change in array as there are all 0s.
 ====================================
 Solution
 ====================================
-class Solution {
-    public int[] pushZerosToEnd(int[] arr) {
-        
-        //chekcing array length
-       int len = arr.Length;
-       
-       //creating temp array with same length
-       int[] temp = new int[len];
-       
-        // to keep track of the index in temp[]
-       int j = 0 ;
-       
-       // Copy non-zero elements to temp[]
-       for(int i = 0;i<len;i++){
-           if(arr[i] != 0 ){
-              temp[j] = arr[i];
-              j = j + 1;
-           }
-       }
-       // Fill remaining positions in temp[] with zeros
-       while(j<len){
-           temp[j] = 0;
-           j = j + 1;
-           
-       }
-       // Copy all the elements from temp[] to arr[]
-       for(int i = 0 ;i<len;i++){
-           arr[i] = temp[i];
-       }
-       return arr;
+class Solution
+{
+    public void pushZerosToEnd(int[] arr)
+    {
+        int j = 0; // Position for next non-zero element
+
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] != 0)
+            {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+
+                j++;
+            }
+        }
     }
 }
 ====================================
