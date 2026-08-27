@@ -1,0 +1,49 @@
+Problem : Rotate Array
+==========================
+Given an array arr[]. Rotate the array to the left (counter-clockwise direction) by d steps, where d is a positive integer. Do the mentioned change in the array in place.
+
+Note: Consider the array as circular.
+
+Examples :
+
+Input: arr[] = [1, 2, 3, 4, 5], d = 2
+Output: [3, 4, 5, 1, 2]
+Explanation: when rotated by 2 elements, it becomes [3, 4, 5, 1, 2].
+
+Input: arr[] = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20], d = 3
+Output: [8, 10, 12, 14, 16, 18, 20, 2, 4, 6]
+Explanation: when rotated by 3 elements, it becomes [8, 10, 12, 14, 16, 18, 20, 2, 4, 6].
+
+Input: arr[] = [7, 3, 9, 1], d = 9
+Output: [3, 9, 1, 7]
+Explanation: when we rotate 9 times, we'll get [3, 9, 1, 7] as resultant array.
+==========================
+Solution
+==========================
+class Solution {
+    public void rotateArr(int[] arr, int d) {
+
+        int n = arr.Length; // length 
+        
+        //Since the array is circular, after every n 
+        //rotations it returns to its original position.
+        //Therefore, we only need the remainder d % n, 
+        //which avoids unnecessary rotations and improves performance.
+        d = d % n;
+
+        while(d > 0)
+        {
+            int first = arr[0]; //1
+
+            for(int i = 0; i < n - 1; i++)
+            {
+                arr[i] = arr[i + 1];
+            }
+
+            arr[n - 1] = first;
+
+            d--;
+        }
+    }
+}
+==========================
